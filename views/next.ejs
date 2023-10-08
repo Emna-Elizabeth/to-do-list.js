@@ -1,0 +1,42 @@
+<%- include("partials/header.ejs") %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Charmonman&family=Lato&family=PT+Serif:ital@1&family=Source+Serif+4:opsz@8..60&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body class="index">
+    <section id="title">
+        <div class="container">
+            <h1>Weekly TO-Do List</h1>
+        </div>
+        <div class="day">
+        <h2><%=locals.day %></h2>
+        </div>
+    </section>
+    <section id="do-list">
+        <div class="box list">
+            <div class="items"><p><hr /></p> </div>
+
+            <% for(var i=0;i<locals.length1;i++){%>
+                <div class="items"><input type="checkbox"><p><%=locals.add1[i]%><hr /></p></div>
+            <% } %>
+            <div class="newLine">
+            <form action="/next" method="POST">
+                <input type="text" name="newItem" placeholder="newItem">
+                <button type="submit" class="btn bg-white button">✖️</button>
+              </form>
+            </div>
+        </div>
+    </section>
+ 
+</body>
+</html>
+
+<%- include("partials/footer.ejs") %>
